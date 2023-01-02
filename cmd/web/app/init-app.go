@@ -43,7 +43,9 @@ func MustInitApplication() *application {
 	app.Log = log.Start()
 
 	// add models
-	app.Models = models.New(app.Baboon.Database)
+	if app.Baboon.Config.DatabaseConfig.Dialect != "" {
+		app.Models = models.New(app.Baboon.Database)
+	}
 
 	// add middleware
 	app.Middleware = &middleware.Middleware{
