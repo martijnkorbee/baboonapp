@@ -20,7 +20,7 @@ func (ar *AppRoutes) routes() *chi.Mux {
 	// add middleware
 
 	// add your routes here
-	r.Get("/", a.Handlers.Home) // default home route
+	r.Get("/", ar.Handlers.Home) // default home route
 
 	// static routes
 	fileServer := http.FileServer(http.Dir("./public"))
