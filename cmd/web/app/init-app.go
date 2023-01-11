@@ -4,6 +4,7 @@ import (
 	"baboonapp/database/models"
 	"baboonapp/http/handlers"
 	"baboonapp/http/middleware"
+	"baboonapp/http/routes"
 	"log"
 	"os"
 
@@ -56,6 +57,12 @@ func MustInitApplication() *application {
 	// add handlers
 	app.Handlers = &handlers.Handlers{
 		App: baboon,
+	}
+
+	// add routes
+	app.Routes = &routes.AppRoutes{
+		Middleware: *app.Middleware,
+		Handlers:   *app.Handlers,
 	}
 
 	// mount application routes
