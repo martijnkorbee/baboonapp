@@ -11,7 +11,7 @@ func (ar *AppRoutes) routesAPI() *chi.Mux {
 	// add your middleware here
 
 	// add your routes here
-	r.Get("/ping", a.Handlers.Ping) // default route
+	r.Get("/ping", ar.Handlers.Ping) // default route
 
 	return r
 }

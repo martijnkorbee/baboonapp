@@ -4,6 +4,7 @@ import (
 	"baboonapp/database/models"
 	"baboonapp/http/handlers"
 	"baboonapp/http/middleware"
+	"baboonappapp/http/routes"
 	"fmt"
 	"os"
 	"os/signal"
@@ -19,6 +20,7 @@ type application struct {
 	Log        *logger.Logger
 	Middleware *middleware.Middleware
 	Handlers   *handlers.Handlers
+	Routes     *routes.AppRoutes
 	Models     *models.Models
 	WG         sync.WaitGroup
 }

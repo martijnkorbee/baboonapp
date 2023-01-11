@@ -21,7 +21,10 @@ func MustInitApplication() *application {
 
 	// init baboon
 	baboon := &gobaboon.Baboon{}
-	err = baboon.Init(path)
+	err = baboon.Init(gobaboon.Config{
+		Rootpath: path,
+		// LOAD YOUR CONFIGURATION HERE YOU COULD USE THE .env EXAMPLE
+	})
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -66,8 +69,8 @@ func MustInitApplication() *application {
 	}
 
 	// mount application routes
-	app.Baboon.Server.Router.Mount("/", app.routes())       // web routes
-	app.Baboon.Server.Router.Mount("/api", app.routesAPI()) // API routes
+	app.Baboon.Server.Router.Mount("/", app.Routes.Routes())       // web routes
+	app.Baboon.Server.Router.Mount("/api", app.Routes.RoutesAPI()) // API routes
 
 	return app
 }
