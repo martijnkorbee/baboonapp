@@ -1,12 +1,19 @@
-package app
+package routes
 
 import (
+	"baboonapp/http/handlers"
+	"baboonapp/http/middleware"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
 )
 
-func (a *application) routes() *chi.Mux {
+type AppRoutes struct {
+	Middleware middleware.Middleware
+	Handlers   handlers.Handlers
+}
+
+func (ar *AppRoutes) routes() *chi.Mux {
 	// application routes
 	r := chi.NewRouter()
 
