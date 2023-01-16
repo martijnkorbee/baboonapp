@@ -23,11 +23,14 @@ func MustInitApplication() *application {
 	baboon := &gobaboon.Baboon{}
 	err = baboon.Init(gobaboon.Config{
 		Rootpath: path,
+		Debug:    true,
 		// LOAD YOUR CONFIGURATION HERE YOU COULD USE THE .env EXAMPLE
 	})
 	if err != nil {
 		log.Fatalln(err)
 	}
+	// AFTER ADDING YOUR CONFIG YOU CAN REMOVE THIS LOG
+	baboon.Log.Warn().Msg("no config loaded, running with default settings")
 
 	app := &application{
 		Baboon: baboon,
