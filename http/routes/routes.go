@@ -13,7 +13,7 @@ type AppRoutes struct {
 	Handlers   handlers.Handlers
 }
 
-func (ar *AppRoutes) routes() *chi.Mux {
+func (ar *AppRoutes) Routes() *chi.Mux {
 	// application routes
 	r := chi.NewRouter()
 
