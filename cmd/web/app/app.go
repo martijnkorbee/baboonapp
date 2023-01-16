@@ -4,7 +4,7 @@ import (
 	"baboonapp/database/models"
 	"baboonapp/http/handlers"
 	"baboonapp/http/middleware"
-	"baboonappapp/http/routes"
+	"baboonapp/http/routes"
 	"fmt"
 	"os"
 	"os/signal"
