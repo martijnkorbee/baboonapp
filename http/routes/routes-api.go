@@ -4,7 +4,7 @@ import (
 	"github.com/go-chi/chi/v5"
 )
 
-func (ar *AppRoutes) routesAPI() *chi.Mux {
+func (ar *AppRoutes) RoutesAPI() *chi.Mux {
 	// API routes
 	r := chi.NewRouter()
 
