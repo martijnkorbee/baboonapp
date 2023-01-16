@@ -40,10 +40,6 @@ func MustInitApplication() *application {
 		Baboon: baboon,
 	}
 
-	app := &application{
-		Baboon: baboon,
-	}
-
 	// start application logger
 	log := &logger.LoggerConfig{
 		Rootpath:   app.Baboon.Config.Rootpath,
